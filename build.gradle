@@ -30,7 +30,7 @@ apply(plugin: 'cuba')
 cuba {
     artifact {
         group = 'com.haulmont.sample.petclinic'
-        version = '0.2'
+        version = '0.3'
         isSnapshot = true
     }
     tomcat {

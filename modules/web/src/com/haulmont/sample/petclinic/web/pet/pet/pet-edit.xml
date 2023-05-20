@@ -23,6 +23,15 @@
                 </query>
             </loader>
         </collection>
+add        <collection id="visitsDc"
+                    class="com.haulmont.sample.petclinic.entity.visit.Visit"
+                    view="visit-with-pet">
+            <loader id="visitsDl">
+                <query>
+                    <![CDATA[select e from petclinic_Visit e]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
@@ -37,7 +46,17 @@
                 <lookupPickerField property="owner" optionsContainer="ownersDc"/>
             </column>
         </form>
+
+        <table id="visitsTable"
+               dataContainer="visitsDc" visible="false">
+            <actions>
+                <action id="create"
+                        type="create"/>
+            </actions>
+        </table>
+
         <hbox id="editActions" spacing="true">
+            <button id="newVisit" action="visitsTable.create" caption="New Visit"/>
             <button action="windowCommitAndClose"/>
             <button action="windowClose"/>
         </hbox>
