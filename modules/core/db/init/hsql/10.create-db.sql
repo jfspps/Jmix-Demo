@@ -15,6 +15,7 @@ create table PETCLINIC_PET (
     TYPE_ID varchar(36),
     GENERATION integer not null,
     OWNER_ID varchar(36),
+    PETSTORE_ID varchar(36),
     --
     primary key (ID)
 )^
@@ -70,6 +71,8 @@ create table PETCLINIC_VET (
     FIRST_NAME varchar(255) not null,
     LAST_NAME varchar(255),
     --
+    PETSTORE_ID varchar(36),
+    --
     primary key (ID)
 )^
 -- end PETCLINIC_VET
@@ -114,3 +117,19 @@ create table PETCLINIC_VET_SPECIALTY_LINK (
     primary key (VET_ID, SPECIALTY_ID)
 )^
 -- end PETCLINIC_VET_SPECIALTY_LINK
+
+-- begin PETCLINIC_PET_STORE
+create table PETCLINIC_PET_STORE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255) not null
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_PET_STORE

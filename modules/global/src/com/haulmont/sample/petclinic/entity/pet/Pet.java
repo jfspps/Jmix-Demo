@@ -3,6 +3,7 @@ package com.haulmont.sample.petclinic.entity.pet;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.sample.petclinic.entity.NamedEntity;
 import com.haulmont.sample.petclinic.entity.owner.Owner;
+import com.haulmont.sample.petclinic.entity.petstore.PetStore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,6 +36,11 @@ public class Pet extends NamedEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OWNER_ID")
     protected Owner owner;
+
+    // assume each Pet can only be assigned to one Pet Store
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PETSTORE_ID")
+    protected PetStore petStore;
 
     public Generation getGeneration() {
         return generation == null ? null : Generation.fromId(generation);
@@ -74,5 +80,13 @@ public class Pet extends NamedEntity {
 
     public Date getBirthDate() {
         return birthDate;
+    }
+
+    public PetStore getPetStore() {
+        return petStore;
+    }
+
+    public void setPetStore(PetStore petStore) {
+        this.petStore = petStore;
     }
 }
