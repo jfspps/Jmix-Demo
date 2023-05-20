@@ -23,7 +23,7 @@
                 </query>
             </loader>
         </collection>
-add        <collection id="visitsDc"
+        <collection id="visitsDc"
                     class="com.haulmont.sample.petclinic.entity.visit.Visit"
                     view="visit-with-pet">
             <loader id="visitsDl">
