@@ -102,6 +102,7 @@ create table PETCLINIC_VISIT (
     VISIT_DATE date not null,
     DESCRIPTION varchar(4000),
     PET_ID varchar(36) not null,
+    VET_ID varchar(36),
     --
     primary key (ID)
 )^
